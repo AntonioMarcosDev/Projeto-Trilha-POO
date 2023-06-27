@@ -9,19 +9,25 @@ public class Main {
         // Escolher o tema do jogo
         Scanner entrada = new Scanner(System.in);
         Tema tema = null;
+        /*Tratar exceção de opção não disponível*/
         do {
-            System.out.print("Digite uma opção: ");
-            int opcao = entrada.nextInt();
-            entrada.nextLine();
-            // Tratar exceção de opção não disponível
             try {
-                tema = Menu.selecionarTema(opcao);
+                // Tratar casos onde a opcção digitada não foi um número
+                String opcao;
+                System.out.print("Digite uma opção: ");
+                opcao = entrada.nextLine();
+                while (!opcao.matches("[0-9]+$")) {
+                    System.out.println("Opção informada não é um número");
+                    System.out.print("Por favor, escolha uma opção válida:");
+                    opcao = entrada.nextLine();
+                }
+                tema = Menu.selecionarTema(Integer.parseInt(opcao));
             } catch (IllegalArgumentException e) {
-                System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                System.out.println("Opção inválida. Por favor, escolha uma opção válida:");
             }
         } while (tema == null);
 
-        // Quantidade de palavras possíveis
+        // Informalções sobre o tema escolhido
         int tamanho = tema.quantidadePalavras();
         String nome = (tema.getClass().getSimpleName().equals("Geral")) ? "possibilidades" : tema.getClass().getSimpleName();
         System.out.println("Existem " + tamanho + " " + nome + " no Banco de Palavras");
@@ -52,5 +58,4 @@ public class Main {
 
         entrada.close();
     }
-
 }

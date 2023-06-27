@@ -1,12 +1,12 @@
 import java.text.Normalizer;
 
 public class JogoDaForca implements Jogo {
-    private String palavra;
+    private final String palavra;
     private StringBuilder palavraParcial;
-    private StringBuilder letrasUsadas;
+    private final StringBuilder letrasUsadas;
     private int tentativas;
-    private Desenho forca;
-    private String palavraSemAcentos;
+    private final Desenho forca;
+    private final String palavraSemAcentos;
 
     // Construtor que recebe uma palavra do banco
     public JogoDaForca(String palavra) {
@@ -28,7 +28,7 @@ public class JogoDaForca implements Jogo {
 
     // Implementação do método tentarLetra
     @Override
-    public void tentarLetra(char letra) {
+    public void receberPalpite(char letra) {
         letrasUsadas.append(letra);
         boolean letraEncontrada = false;
         for (int i = 0; i < palavra.length(); i++) {
@@ -44,14 +44,14 @@ public class JogoDaForca implements Jogo {
         System.out.println("Palavra: " + palavraParcial.toString() + " com " + palavra.length() + " letras");
         forca.imprime();
         System.out.println("Tentativas restantes: " + tentativas);
-        System.out.println("Letras Usadas: " + letrasUsadas.toString());
+        System.out.println("Letras Usadas: " + letrasUsadas);
     }
 
     // Implementação do método tentarPalavra
     @Override
-    public void tentarPalavra(String palavra) {
+    public void receberPalpite(String palavra) {
         if (this.palavra.equals(palavra)) {
-            palavraParcial.replace(0, palavra.length(), palavra);
+            palavraParcial.replace(0, palavraParcial.length(), palavra);
         } else {
             tentativas = 0;
         }
@@ -63,7 +63,7 @@ public class JogoDaForca implements Jogo {
         if (tentativas == 0) {
             System.out.println("Você perdeu! A palavra correta era: " + palavra);
             return true;
-        } else if (palavra.equals(palavraParcial.toString())) {
+        } else if (palavra.contentEquals(palavraParcial)) {
             System.out.println("Parabéns! Você venceu!");
             return true;
         }
@@ -76,7 +76,7 @@ public class JogoDaForca implements Jogo {
             if (palavra.charAt(i) == '-') {
                 palavraParcial.setCharAt(i, '-');
             }
-            if (palavra.charAt(i) == ' '){
+            if (palavra.charAt(i) == ' ') {
                 palavraParcial.setCharAt(i, ' ');
             }
         }

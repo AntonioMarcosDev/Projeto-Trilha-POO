@@ -10,7 +10,6 @@ public class Menu {
         System.out.println("2 - Frutas");
         System.out.println("3 - Países");
         System.out.println("4 - Aleatório");
-        System.out.print("Digite uma opção: ");
     }
 
     public static Tema selecionarTema(int opcao) {

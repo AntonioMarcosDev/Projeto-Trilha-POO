@@ -1,9 +1,9 @@
 public interface Jogo {
     void iniciarJogo();
 
-    void tentarLetra(char letra);
+    void receberPalpite(char letra);
 
-    void tentarPalavra(String palavra);
+    void receberPalpite(String palavra);
 
     boolean isJogoTerminado();
 }

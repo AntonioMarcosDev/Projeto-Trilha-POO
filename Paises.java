@@ -17,7 +17,7 @@ public class Paises extends Tema {
             bufferedReader.close();
             fileReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("O arquivo pode ter sido apagado ou movido. Certifique-se que existe um arquivo Paises.txt no diretório Banco");;
         }
     }
 

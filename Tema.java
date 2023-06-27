@@ -5,7 +5,7 @@ public abstract class Tema {
     protected ArrayList<String> palavras = new ArrayList<>();
     protected Random random = new Random();
 
-    abstract String obterPalavra();
+    public abstract String obterPalavra();
 
-    abstract int quantidadePalavras();
+    public abstract int quantidadePalavras();
 }

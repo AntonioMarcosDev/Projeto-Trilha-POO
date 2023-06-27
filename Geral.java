@@ -36,7 +36,7 @@ public class Geral extends Tema {
     }
 
     @Override
-    int quantidadePalavras() {
+    public int quantidadePalavras() {
         return palavras.size();
     }
 }

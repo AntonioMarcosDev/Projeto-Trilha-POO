@@ -17,7 +17,8 @@ public class Frutas extends Tema {
             bufferedReader.close();
             fileReader.close();
         } catch (IOException e) {
-            System.out.println("O arquivo pode ter sido apagado ou movido. Certifique-se que existe um arquivo Frutas.txt no diretório Banco");;
+            System.out.println("O arquivo pode ter sido apagado ou movido. Certifique-se que existe um arquivo Frutas.txt no diretório Banco");
+            ;
         }
     }
 
@@ -29,7 +30,7 @@ public class Frutas extends Tema {
     }
 
     @Override
-    int quantidadePalavras() {
+    public int quantidadePalavras() {
         return palavras.size();
     }
 }

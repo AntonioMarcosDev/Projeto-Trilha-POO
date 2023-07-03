@@ -29,8 +29,4 @@ public class Frutas extends Tema {
         return palavras.get(indice);
     }
 
-    @Override
-    public int quantidadePalavras() {
-        return palavras.size();
-    }
 }

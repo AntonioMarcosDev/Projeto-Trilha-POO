@@ -28,8 +28,4 @@ public class Paises extends Tema {
         return palavras.get(indice);
     }
 
-    @Override
-    public int quantidadePalavras() {
-        return palavras.size();
-    }
 }

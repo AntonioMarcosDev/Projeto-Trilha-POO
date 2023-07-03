@@ -24,7 +24,8 @@ public class Geral extends Tema {
                 }
             }
         } catch (IOException e) {
-            System.out.println("O arquivo pode ter sido apagado ou movido. Certifique-se que existem aruivos com a extensão .txt no diretório Banco");;
+            System.out.println("O arquivo pode ter sido apagado ou movido. Certifique-se que existem aruivos com a extensão .txt no diretório Banco");
+            ;
         }
     }
 
@@ -36,7 +37,7 @@ public class Geral extends Tema {
     }
 
     @Override
-    public int quantidadePalavras() {
-        return palavras.size();
+    public String nomeTema(){
+        return "possibilidades";
     }
 }

@@ -61,10 +61,10 @@ public class JogoDaForca implements Jogo {
     @Override
     public boolean isJogoTerminado() {
         if (tentativas == 0) {
-            System.out.println("Você perdeu! A palavra correta era: " + palavra);
+            System.out.println("\u001B[31m" + "Você perdeu! A palavra correta era: " + palavra + "\u001B[0m");
             return true;
         } else if (palavra.contentEquals(palavraParcial)) {
-            System.out.println("Parabéns! Você venceu!");
+            System.out.println("\u001B[32m" + "Parabéns! Você venceu!" + "\u001B[0m");
             return true;
         }
         return false;
@@ -86,4 +86,3 @@ public class JogoDaForca implements Jogo {
         return Normalizer.normalize(palavra, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 }
-

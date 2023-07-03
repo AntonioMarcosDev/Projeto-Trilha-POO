@@ -7,5 +7,11 @@ public abstract class Tema {
 
     public abstract String obterPalavra();
 
-    public abstract int quantidadePalavras();
+    public int quantidaDePalavras(){
+        return palavras.size();
+    };
+
+    public String nomeTema(){
+        return this.getClass().getSimpleName();
+    }
 }
